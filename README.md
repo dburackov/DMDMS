@@ -31,7 +31,7 @@ ___
 Данные: уникальный иденцификационный номер, осмотр, врач, описание.
 ### Медицинские услуги
 Курс лечения состоит из медицинских услуг и препаратов. 
-Данные: уникальный иденцификационный номер, название, стоимость. 
+Данные: уникальный иденцификационный номер, название, описание, стоимость. 
 ___
 ## Функциональные требования к проекту
 1. Обязательыне требования:
@@ -61,5 +61,22 @@ ___
     - Предоставить общее количество пациентов в каждом центре, упорядочить по номеру клиники.
     - Предоставить отчет о количестве фармацевтических препаратов, упорядочить по номеру клини.
     - Предоставить историю болезней животного-пациента.
+___
+## Дизайн базы данных
+### Атрибуты сущностей
+
+| Entity  | Attributes  |
+|:--------------- |:--------------- |
+|Clinic          | id, address (street, city, state), tel|
+|Pharmaceuticals | id, name, farma_index, exp_date, description|
+|MedicalEquipment| id, name, data_paid, description|
+|Stuff| id, name (first_name, middle_name, last_name), clinic_id, position, passport_id, tel, email|
+|Client| id, name (first_name, middle_name, last_name), registration_date, tel, email |
+|PassportData| id, birth_data, sex, IIN, address (street, city, state)|
+|Animal| id, name, client_id|
+|MedicalCard| id, animal_id, data, diagnosis|
+|Examination| id, data and time, doctor_id, result|
+|TreatmentCourse| id, examination_id, doctor_id, description|
+|Service| id, name, description, cost|
 ___
 ## Информационная схема базы данных
